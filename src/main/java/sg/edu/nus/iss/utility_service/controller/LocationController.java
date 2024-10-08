@@ -20,7 +20,7 @@ public class LocationController {
             LatLng coordinates = locationService.getCoordinatesFromPincode(pincode);
             return new ResponseEntity<>(coordinates, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error Fetching Coordinates", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

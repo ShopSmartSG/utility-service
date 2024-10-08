@@ -50,7 +50,7 @@ public class LocationControllerTest {
     @Test
     public void testGetCoordinatesFailure() throws Exception {
         // Mock the LocationService to throw an exception
-        when(locationService.getCoordinatesFromPincode(anyString())).thenThrow(new RuntimeException("Pincode not found"));
+        when(locationService.getCoordinatesFromPincode(anyString())).thenThrow(new RuntimeException("Error Fetching Coordinates"));
 
         // Perform the GET request and expect an error
         mockMvc.perform(get("/location/coordinates")
