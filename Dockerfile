@@ -4,7 +4,6 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package
 
-# Stage 2: Set up the runtime environment
 # Use an official OpenJDK runtime as a parent image
 FROM openjdk:21-jdk-slim
 
