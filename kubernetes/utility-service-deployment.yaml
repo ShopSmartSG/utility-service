@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utility-service
+  labels:
+    app: utility-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: utility-service
+  template:
+    metadata:
+      labels:
+        app: utility-service
+    spec:
+      containers:
+        - name: utility-service
+          image: simranarora264/utility-service:latest
+          ports:
+            - containerPort: 8083
+          env:
+            - name: LOGGING_FILE_PATH
+              value: /var/log/utility-service/utility-service.log
+            - name: LOGSTASH_HOST
+              value: "logstash"
+            - name: LOGSTASH_PORT
+              value: "5044"
+          volumeMounts:
+            - name: log-volume
+              mountPath: /var/log/utility-service
+        - name: filebeat
+          image: docker.elastic.co/beats/filebeat:7.14.1
+          volumeMounts:
+            - name: log-volume
+              mountPath: /var/log/utility-service
+            - name: filebeat-config
+              mountPath: /usr/share/filebeat/filebeat.yml
+              subPath: filebeat.yml
+      volumes:
+        - name: log-volume
+          persistentVolumeClaim:
+            claimName: utility-service-log-pvc
+        - name: filebeat-config
+          configMap:
+            name: filebeat-config
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: utility-service-log-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: utility-service
+spec:
+  selector:
+    app: utility-service
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
+  type: NodePort
