@@ -29,7 +29,7 @@ public class LocationController {
             LatLng coordinates = locationService.getCoordinatesFromPincode(pincode);
             return new ResponseEntity<>(coordinates, HttpStatus.OK);
         } catch (Exception e) {
-            logger.info("{\"message\": \"Error Fetching Coordinates for Pincode: " + pincode + "\"}");
+            logger.error("{\"message\": \"Error Fetching Coordinates for Pincode: " + pincode + "\"}");
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
