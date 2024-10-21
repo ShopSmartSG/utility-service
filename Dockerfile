@@ -16,8 +16,8 @@ RUN mkdir -p /var/log/utility-service && \
 # Copy the project’s jar file into the container at /app
 COPY --from=build /app/target/utility-service.jar utility-app.jar
 
-# Make port 8083 available to the world outside this container
-EXPOSE 8083
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
 
 # Run the jar file
 ENTRYPOINT ["java", "-jar", "utility-app.jar"]
