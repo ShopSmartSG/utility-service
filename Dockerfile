@@ -1,4 +1,3 @@
-# Stage 1: Build the application using Maven
 FROM maven:3.9.7-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY pom.xml .
