@@ -8,12 +8,6 @@
         </encoder>
     </appender>
 
-    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <remoteHost>logstash</remoteHost>
-        <port>5044</port>
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
-    </appender>
-
     <appender name="TEST" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>localhost:1234</destination>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
@@ -26,7 +20,6 @@
 
 <root level="INFO">
     <appender-ref ref="FILE"/>
-    <appender-ref ref="LOGSTASH"/>
     <appender-ref ref="CONSOLE"/>
 </root>
 </configuration>
