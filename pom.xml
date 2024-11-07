@@ -108,6 +108,8 @@
 				<configuration>
 					<excludes>
 						<exclude>sg/edu/nus/iss/utility_service/UtilityServiceApplication.class</exclude>
+						<exclude>sg/edu/nus/iss/utility_service/SwaggerConfig.class</exclude>
+
 					</excludes>
 				</configuration>
 				<executions>
