@@ -28,7 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<sonar.coverage.exclusions>sg/edu/nus/iss/utility_service/UtilityServiceApplication.class,sg/edu/nus/iss/utility_service/SwaggerConfig.class</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/sg/edu/nus/iss/utility_service/UtilityServiceApplication.java,**/sg/edu/nus/iss/utility_service/SwaggerConfig.java</sonar.coverage.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
