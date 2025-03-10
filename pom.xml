@@ -57,12 +57,6 @@
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
 			<version>0.8.12</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-io</groupId>
-					<artifactId>commons-io</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -72,18 +66,17 @@
 		<dependency>
 			<groupId>com.google.maps</groupId>
 			<artifactId>google-maps-services</artifactId>
-			<version>0.18.1</version>
-			<exclusions>
-					<exclusion>
-						<groupId>io.grpc</groupId>
-						<artifactId>grpc-context</artifactId>
-					</exclusion>
-				</exclusions>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-context</artifactId>
 			<version>1.71.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okio</groupId>
+			<artifactId>okio-jvm</artifactId>
+			<version>3.6.0</version>
 		</dependency>
 
 		<dependency>
